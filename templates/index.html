@@ -1,0 +1,46 @@
+{% extends 'base.html' %}
+
+{% block head %}
+
+
+<title>Sentiment Analyser</title>
+
+<style>
+	table { margin-top: 30px; }
+	table.space { margin-top: 50px; }
+	table, th, td { border: 1px solid black; }
+</style>
+
+{% endblock %}
+
+{% block body %}
+<bgimage = 'twitter1.jpg'>
+<div class='content'>
+<h1>Sentiment Analyser</h1>
+<form action ='/' method = 'POST'>
+<input type='text' name = 'content' id='content'>
+<input type='submit' value='Search'>
+
+	<table align = "right">
+		<tr>	
+			<th>Number</th>
+			<th style="min-width:600px">Search</th>
+			<th style="min-width:100px">Sentiment</th>
+		</tr>
+		{% for i in posts %}
+		<tr>
+		<td>{{i[2]}}</td>		
+		<td>{{i[0]}}</td>
+		<td>{{i[1]}}</td>
+		</tr>
+		{% endfor %}
+		<tr>
+		<td>jsonify_output</td>
+		<td>{{stat}}</td>	
+		<td>jsonify_output</td>	
+		</tr>
+	</table>
+
+</div>
+
+{% endblock %}
